@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-09T16:36:17 IST" name="Default suite" finished-at="2025-05-09T16:36:28 IST" duration-ms="10325">
+    <groups>
+    </groups>
+    <test started-at="2025-05-09T16:36:17 IST" name="Default test" finished-at="2025-05-09T16:36:28 IST" duration-ms="10325">
+      <class name="inventoryModule.UploadProductsTest">
+        <test-method is-config="true" signature="configBS()[pri:0, instance:inventoryModule.UploadProductsTest@7526515b]" started-at="2025-05-09T16:36:17 IST" name="configBS" finished-at="2025-05-09T16:36:17 IST" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBS -->
+        <test-method is-config="true" signature="configBC()[pri:0, instance:inventoryModule.UploadProductsTest@7526515b]" started-at="2025-05-09T16:36:17 IST" name="configBC" finished-at="2025-05-09T16:36:20 IST" duration-ms="2271" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBC -->
+        <test-method is-config="true" signature="configBM()[pri:0, instance:inventoryModule.UploadProductsTest@7526515b]" started-at="2025-05-09T16:36:20 IST" name="configBM" finished-at="2025-05-09T16:36:22 IST" duration-ms="2450" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="uploadProducts()[pri:0, instance:inventoryModule.UploadProductsTest@7526515b]" started-at="2025-05-09T16:36:22 IST" name="uploadProducts" finished-at="2025-05-09T16:36:28 IST" duration-ms="5540" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadProducts -->
+        <test-method is-config="true" signature="configAS()[pri:0, instance:inventoryModule.UploadProductsTest@7526515b]" started-at="2025-05-09T16:36:28 IST" name="configAS" finished-at="2025-05-09T16:36:28 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configAS -->
+      </class> <!-- inventoryModule.UploadProductsTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
