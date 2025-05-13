@@ -1,5 +1,6 @@
 package ObjectRepository;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,34 +19,34 @@ public class AddProducts_Page {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//input[@id='input-188']")
+	@FindBy(xpath = "//input[@tabindex='1' and @class='v-field__input']")
 	private WebElement barcodeTxtBox;
 
-	@FindBy(xpath = "//input[@id='input-224']")
+	@FindBy(xpath = "//input[@tabindex='2' and @class='v-field__input']")
 	private WebElement mrpTxtBox;
 
-	@FindBy(xpath = "//input[@id='input-190']")
+	@FindBy(xpath = "//input[@tabindex='3' and @class='v-field__input']")
 	private WebElement productNameTxtBox;
 
-	@FindBy(xpath = "//input[@id='input-226']")
+	@FindBy(xpath = "//input[@tabindex='7' and @class='v-field__input']")
 	private WebElement purchasePriceTxtBox;
 
-	@FindBy(xpath = "//input[@id='input-192']")
+	@FindBy(xpath = "//input[@tabindex='12']")
 	private WebElement uomDropDown;
 
-	@FindBy(xpath = "//input[@id='input-228']")
+	@FindBy(xpath = "//input[@tabindex='4' and @class='v-field__input']")
 	private WebElement SP1TxtBox;
 
-	@FindBy(xpath = "//input[@id='input-195']")
+	@FindBy(xpath = "//input[@tabindex='5' and @class='v-field__input']")
 	private WebElement qtyTxtBox;
 
-	@FindBy(xpath = "//input[@id='input-197']")
+	@FindBy(xpath = "//input[@tabindex='5' and @class='v-field__input']")
 	private WebElement gstDropDown;
 
-	@FindBy(xpath = "//input[@id='input-200']")
+	@FindBy(xpath = "//input[@tabindex='9']")
 	private WebElement categoryDropDown;
 
-	@FindBy(xpath = "//input[@id='input-234']")
+	@FindBy(xpath = "//input[@tabindex='10']")
 	private WebElement subCatDropDown;
 
 	@FindBy(xpath = "//span[text()='Add ']")
@@ -104,40 +105,46 @@ public class AddProducts_Page {
 
 	// Action
 	public void addProduct(String barcode, String mrp, String prodName, String purPrice, String uom, String SP1,
-			String qty, String gst, String catogory, String subCat) {
-		getBarcodeTxtBox().clear();
-		getBarcodeTxtBox().sendKeys(barcode);
+			String qty, String gst, String catogory, String subCat) throws Throwable {
 
-		getMrpTxtBox().clear();
+		getBarcodeTxtBox().sendKeys(barcode);
+		
+		getMrpTxtBox().click();
+		Thread.sleep(300);
+		getMrpTxtBox().sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		getMrpTxtBox().sendKeys(mrp);
 
 		getProductNameTxtBox().clear();
 		getProductNameTxtBox().sendKeys(prodName);
 
-		getPurchasePriceTxtBox().clear();
+		getPurchasePriceTxtBox().click();
+		getPurchasePriceTxtBox().sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		getPurchasePriceTxtBox().sendKeys(purPrice);
 
-		wu.dropdown(getUomDropDown());
-		getUomDropDown().clear();
+		getUomDropDown().click();
 		getUomDropDown().sendKeys(uom);
+		getUomDropDown().sendKeys(Keys.ENTER);
 
-		getSP1TxtBox().clear();
+		getSP1TxtBox().click();
+		getSP1TxtBox().sendKeys(Keys.CONTROL, "a", Keys.DELETE);;
 		getSP1TxtBox().sendKeys(SP1);
 
-		getQtyTxtBox().clear();
+		getQtyTxtBox().click();
+		getQtyTxtBox().sendKeys(Keys.CONTROL, "a", Keys.DELETE);;
 		getQtyTxtBox().sendKeys(qty);
 
-		wu.dropdown(getGstDropDown());
-		getGstDropDown().clear();
-		getGstDropDown().sendKeys(uom);
+		
+		getGstDropDown().click();;
+		getGstDropDown().sendKeys(gst);
+		getGstDropDown().sendKeys(Keys.ENTER);
 
-		wu.dropdown(getCategoryDropDown());
-		getCategoryDropDown().clear();
+		getCategoryDropDown().click();
 		getCategoryDropDown().sendKeys(catogory);
+		getCategoryDropDown().sendKeys(Keys.ENTER);
 
-		wu.dropdown(getSubCatDropDown());
-		getSubCatDropDown().clear();
+		getSubCatDropDown().click();
 		getSubCatDropDown().sendKeys(subCat);
+		getSubCatDropDown().sendKeys(Keys.ENTER);
 
 		getAddBtn().click();
 

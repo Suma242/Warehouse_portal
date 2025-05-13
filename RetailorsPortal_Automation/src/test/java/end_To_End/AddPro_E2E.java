@@ -1,11 +1,7 @@
-package inventoryModule;
+package end_To_End;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
 import BaseClass.BaseClass;
 import FileUtility.ExcelUtility;
 import ObjectRepository.AddProducts_Page;
@@ -15,7 +11,8 @@ import ObjectRepository.InventoryMenu_Page;
 import WebDriverUtility.JavaUtility;
 import WebDriverUtility.WebDriverUtility;
 
-public class AddProducts_Test extends BaseClass {
+public class AddPro_E2E extends BaseClass{
+	
 	WebDriverUtility wu = new WebDriverUtility();
 	ExcelUtility eu = new ExcelUtility();
 	JavaUtility ju = new JavaUtility();
@@ -40,11 +37,13 @@ public class AddProducts_Test extends BaseClass {
 
 		wu.waitForElementPresent(driver, cp.getStoreOption());
 		cp.getStoreOption().click();
+		Thread.sleep(1000);
+		cp.getAddProductBtn().click();
 
 		// Step 4: Read data from excel and click on add products
 		int rowCount = eu.getRowCount("productSheet");
 		for (int i = 1; i <= rowCount; i++) {
-			String barcode = eu.getDataFromExcel("productSheet", i, 0) + ju.getRandomNumber();
+			String barcode = eu.getDataFromExcel("productSheet", i, 0)+ju.getRandomNumber();
 			String mrp = eu.getDataFromExcel("productSheet", i, 9);
 			String prodName = eu.getDataFromExcel("productSheet", i, 3) + ju.getRandomNumber();
 			String purPrice = eu.getDataFromExcel("productSheet", i, 10);
@@ -55,18 +54,10 @@ public class AddProducts_Test extends BaseClass {
 			String category = eu.getDataFromExcel("productSheet", i, 5);
 			String subCat = eu.getDataFromExcel("productSheet", i, 6);
 
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".v-overlay__scrim")));
-
-			// Re-open the modal each time
-			cp.getAddProductBtn().click(); // Make sure this reopens the form
-			wu.waitForElementtobeClickable(driver, cp.getAddProductBtn()); // Ensure it's clickable
-
-			// Add product details to the modal
 			AddProducts_Page ap = new AddProducts_Page(driver);
 			ap.addProduct(barcode, mrp, prodName, purPrice, uom, SP1, qty, gst, category, subCat);
 		}
-		// Thread.sleep(10);
+		Thread.sleep(500);
 
 	}
 
