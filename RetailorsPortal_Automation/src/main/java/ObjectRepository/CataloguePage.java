@@ -29,6 +29,9 @@ public class CataloguePage {
 		
 		@FindBy(xpath="//span[.=' Add Product']")
 		private WebElement addProductBtn;
+		
+		@FindBy(xpath = "//h4[@class='text-h4 mb-4']")
+		private WebElement inventoryCount;
 
 		public WebElement getSelectStoreIdDrpdwn() {
 			return selectStoreIdDrpdwn;
@@ -36,5 +39,11 @@ public class CataloguePage {
 
 		public WebElement getAddProductBtn() {
 			return addProductBtn;
-		}		
+		}
+
+		public WebElement getInventoryCount() {
+			return inventoryCount;
+		}
+		
+		
 }

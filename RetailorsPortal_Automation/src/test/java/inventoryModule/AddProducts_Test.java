@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import BaseClass.BaseClass;
 import FileUtility.ExcelUtility;
@@ -66,7 +67,11 @@ public class AddProducts_Test extends BaseClass {
 			AddProducts_Page ap = new AddProducts_Page(driver);
 			ap.addProduct(barcode, mrp, prodName, purPrice, uom, SP1, qty, gst, category, subCat);
 		}
-		// Thread.sleep(10);
+		
+		//validations 
+		String actual="28";
+		String expected = cp.getInventoryCount().getText();
+		Assert.assertEquals(actual, expected);
 
 	}
 
